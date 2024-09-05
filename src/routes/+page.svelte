@@ -53,6 +53,7 @@
 
   main {
     display: grid;
+	justify-content: center;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(8, 1fr);
     width: 100dvw;
@@ -86,14 +87,13 @@
 
   p {
     width: 25ch;
-	padding: 0 var(--spacing-one);
   }
 
   img {
     background-color: var(--tertiary);
     padding: var(--spacing-four);
     border-radius: 2px;
-    grid-column: 6/12;
+    grid-column: 5/12;
     grid-row: 3/5;
     align-self: self-start;
     justify-self: center;
@@ -115,11 +115,12 @@
 	display: grid;
 	flex-direction: column;
     grid-column: 2/12;
-    grid-row: 4/7;
+    grid-row: 4/8;
   }
 
   .bar {
     display: flex;
+	align-self: center;
 	justify-self: center;
     background-color: var(--secondary);
     width: 90%;
@@ -129,6 +130,7 @@
     --i: 0.2rem;
 	--ii: 0.3rem;
     padding: var(--i) var(--ii);
+	margin-top: -.9rem;
   }
 
   .bar div {
