@@ -42,6 +42,7 @@
     --primary: hsl(283, 20%, 93%);
     --secondary: hsl(0, 0%, 7%);
     --tertiary: hsl(283, 56%, 68%);
+    --four: hsl(251, 56%, 68%);
 
     --spacing-one: 0.8rem;
     --spacing-two: 0.4rem;
@@ -53,7 +54,7 @@
 
   main {
     display: grid;
-	justify-content: center;
+    justify-content: center;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(8, 1fr);
     width: 100dvw;
@@ -77,16 +78,17 @@
   h2 {
     font-family: "Editorial italic";
     margin-bottom: var(--spacing-four);
+    padding: var(--spacing-four);
   }
 
   h3 {
-	font-size: 1rem;
-	font-weight: 600;
-	padding-left: var(--spacing-three);
+    font-size: 1rem;
+    font-weight: 600;
+    padding-left: var(--spacing-three);
   }
 
   p {
-    width: 25ch;
+    padding: var(--spacing-four);
   }
 
   img {
@@ -101,36 +103,38 @@
   }
 
   section {
+    grid-column: 2/12;
+    justify-self: center;
+    min-width: 16.5rem;
+    max-width: 23rem;
     background-color: var(--primary);
     padding: var(--spacing-two);
     border-radius: 4px;
   }
 
   .about {
-    grid-column: 2/12;
     grid-row: 2/4;
   }
 
   .skills {
-	display: grid;
-	flex-direction: column;
-    grid-column: 2/12;
+    display: grid;
+    flex-direction: column;
     grid-row: 4/8;
   }
 
   .bar {
     display: flex;
-	align-self: center;
-	justify-self: center;
+    align-self: center;
+    justify-self: center;
     background-color: var(--secondary);
     width: 90%;
     height: 2.2rem;
     --radius: 10px;
     border-radius: var(--radius);
     --i: 0.2rem;
-	--ii: 0.3rem;
+    --ii: 0.3rem;
     padding: var(--i) var(--ii);
-	margin-top: -.9rem;
+    margin-top: -0.9rem;
   }
 
   .bar div {
@@ -141,18 +145,67 @@
   }
 
   .bar .html {
-    width: 85%;
+    --w: 80%;
+    width: var(--w);
   }
 
   .bar .css {
-    width: 75%;
+    --w: 70%;
+    width: var(--w);
   }
 
   .bar .js {
-    width: 45%;
+    --w: 45%;
+    width: var(--w);
   }
 
   .skills p {
     margin: var(--spacing-one) 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    main {
+      background: linear-gradient(323deg, var(--tertiary), var(--secondary));
+      background-size: 400% 400%;
+	  background-position: bottom;
+      animation: bg 20s ease infinite;
+    }
+
+    @keyframes bg {
+      0% {
+        background-position: 51% 0%;
+      }
+      50% {
+        background-position: 10% 100%;
+      }
+      100% {
+        background-position: 51% 0%;
+      }
+    }
+
+    .bar > * {
+      opacity: 0;
+    }
+
+    .bar div {
+      animation: load 0.75s ease-out 0.25s forwards;
+    }
+
+    @keyframes load {
+      from {
+        opacity: 0.5;
+        width: 1%;
+      }
+      to {
+        opacity: 1;
+        width: var(--w);
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion) {
+    .bar > * {
+      opacity: 1;
+    }
   }
 </style>
