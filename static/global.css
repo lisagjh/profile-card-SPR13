@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@font-face {
+  font-family: "Editorial Italic";
+  src: url(/font/PPEditorialNew-Italic.otf);
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Editorial Regular";
+  src: url(/font/PPEditorialNew-Regular.otf);
+  font-weight: normal;
+  font-style: regular;
+}
+
+@font-face {
+  font-family: "Editorial Bold";
+  src: url(/font/PPEditorialNew-Ultrabold.otf);
+  font-style: regular;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Editorial Light";
+  src: url(/font/PPEditorialNew-Ultralight.otf);
+  font-style: regular;
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Editorial Italic Bold";
+  src: url(/font/PPEditorialNew-UltraboldItalic.otf);
+  font-style: italic;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Editorial Italic Light";
+  src: url(/font/PPEditorialNew-UltralightItalic.otf);
+  font-style: italic;
+  font-weight: lighter;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-color: var(--secondary);
+}
