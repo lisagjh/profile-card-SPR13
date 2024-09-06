@@ -42,7 +42,7 @@
     --primary: hsl(283, 20%, 93%);
     --secondary: hsl(0, 0%, 7%);
     --tertiary: hsl(283, 56%, 68%);
-    --four: hsl(251, 56%, 68%);
+    --four: hsl(284, 24%, 36%);
 
     --spacing-one: 0.8rem;
     --spacing-two: 0.4rem;
@@ -126,7 +126,7 @@
     display: flex;
     align-self: center;
     justify-self: center;
-    background-color: var(--secondary);
+    background-color: var(--four);
     width: 90%;
     height: 2.2rem;
     --radius: 10px;
@@ -167,7 +167,7 @@
     main {
       background: linear-gradient(323deg, var(--tertiary), var(--secondary));
       background-size: 400% 400%;
-	  background-position: bottom;
+      background-position: bottom;
       animation: bg 20s ease infinite;
     }
 
