@@ -1,20 +1,38 @@
 <script>
   /** @type {import('./$types').PageData} */
   export let data;
+
+  console.log(data.person.custom.spotify);
 </script>
 
 <main>
   <h1>{data.person.name}</h1>
 
-  <img src={data.person.avatar} alt={data.person.name} width="145" />
+
+ <picture>
+    <source
+      srcset="{data.person.avatar}?format=avif"
+      type="image/avif"
+      width="145"
+      alt={data.person.name}
+    />
+    <source
+      srcset="{data.person.avatar}?format=webp"
+      type="image/webp"
+      width="145"
+      alt={data.person.name}
+    />
+    <img src={data.person.avatar} width="145" alt={data.person.name} />
+  </picture>
 
   <section class="about">
-    <h2>about</h2>
+    <h2>About</h2>
     <p>{data.person.bio}</p>
+    <p>{data.person.custom.spotify}</p>
   </section>
 
   <section class="skills">
-    <h2>skills</h2>
+    <h2>Skills</h2>
     <h3>HTML</h3>
     <div class="bar">
       <div class="html"></div>
@@ -76,7 +94,8 @@
   }
 
   h2 {
-    font-family: "Editorial italic";
+    font-family: "Editorial regular";
+    font-size: 22px;
     margin-bottom: var(--spacing-four);
     padding: var(--spacing-four);
   }
@@ -85,13 +104,14 @@
     font-size: 1rem;
     font-weight: 600;
     padding-left: var(--spacing-three);
+    margin-bottom: -1rem;
   }
 
   p {
     padding: var(--spacing-four);
   }
 
-  img {
+  picture {
     background-color: var(--tertiary);
     padding: var(--spacing-four);
     border-radius: 2px;
@@ -105,10 +125,11 @@
   section {
     grid-column: 2/12;
     justify-self: center;
+    width: 100%;
     min-width: 16.5rem;
     max-width: 23rem;
     background-color: var(--primary);
-    padding: var(--spacing-two);
+    padding: var(--spacing-one);
     border-radius: 4px;
   }
 
@@ -134,7 +155,6 @@
     --i: 0.2rem;
     --ii: 0.3rem;
     padding: var(--i) var(--ii);
-    margin-top: -0.9rem;
   }
 
   .bar div {
