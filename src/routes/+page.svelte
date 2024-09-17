@@ -1,26 +1,22 @@
 <script>
-  /** @type {import('./$types').PageData} */
   export let data;
 
-  console.log(data.person.custom.spotify);
+  console.log(data.person.custom);
 </script>
 
 <main>
   <h1>{data.person.name}</h1>
 
-
- <picture>
+  <picture>
     <source
       srcset="{data.person.avatar}?format=avif"
       type="image/avif"
       width="145"
-      alt={data.person.name}
     />
     <source
       srcset="{data.person.avatar}?format=webp"
       type="image/webp"
       width="145"
-      alt={data.person.name}
     />
     <img src={data.person.avatar} width="145" alt={data.person.name} />
   </picture>
@@ -28,7 +24,6 @@
   <section class="about">
     <h2>About</h2>
     <p>{data.person.bio}</p>
-    <p>{data.person.custom.spotify}</p>
   </section>
 
   <section class="skills">
@@ -71,6 +66,10 @@
   }
 
   main {
+    background-image: url(/src/lib/gradient.svg);
+    background-size: 500%;
+    background-position: left bottom;
+    background-repeat: no-repeat;
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(12, 1fr);
@@ -104,7 +103,6 @@
     font-size: 1rem;
     font-weight: 600;
     padding-left: var(--spacing-three);
-    margin-bottom: -1rem;
   }
 
   p {
@@ -164,6 +162,7 @@
     border-radius: calc(var(--radius) - var(--i));
   }
 
+  /* ik gebruik hier "--w" om de width te zetten, zodat ik later bij de animatie een herbruikbare animatie kan gebruiken ipv voor 3 verschillende widths te moeten maken */
   .bar .html {
     --w: 80%;
     width: var(--w);
@@ -185,21 +184,27 @@
 
   @media (prefers-reduced-motion: no-preference) {
     main {
-      background: linear-gradient(323deg, var(--tertiary), var(--secondary));
-      background-size: 400% 400%;
-      background-position: bottom;
-      animation: bg 20s ease infinite;
+      animation: background 10s ease-in-out infinite alternate;
     }
 
-    @keyframes bg {
+    @keyframes background {
       0% {
-        background-position: 51% 0%;
+        background-position: left bottom;
+      }
+      10% {
+        background-position: right center;
       }
       50% {
-        background-position: 10% 100%;
+        background-position: right top;
+      }
+      65% {
+        background-position: left top;
+      }
+      80% {
+        background-position: left center;
       }
       100% {
-        background-position: 51% 0%;
+        background-position: left bottom;
       }
     }
 
